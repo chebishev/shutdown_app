@@ -20,8 +20,9 @@ cal.pack(pady=20)
 
 # getting selected date and current date
 def grad_date():
-    month, day, year = [(element if len(element) == 2 else "0" + element) for element in cal.get_date().split("/")]
-    date.config(text=f"Selected Date is: {day}.{month}.{year}\nNow is: {today.strftime('%d.%m.%Y %H:%M')}")
+    # making the date in integers in order to make it double digits on the print below
+    month, day, year = [int(x) for x in cal.get_date().split("/")]
+    date.config(text=f"Selected Date is: {day:02}.{month:02}.{year:02}\nNow is: {today.strftime('%d.%m.%Y %H:%M')}")
 
 
 # Add Button and Label
